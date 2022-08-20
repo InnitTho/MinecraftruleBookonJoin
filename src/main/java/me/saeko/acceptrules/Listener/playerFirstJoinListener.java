@@ -104,7 +104,7 @@ public class playerFirstJoinListener implements Listener {
         new BookUtil.PageBuilder()
 
                 .add(
-                        BookUtil.TextBuilder.of("Disclaimer")
+                        BookUtil.TextBuilder.of("Advisory")
                                 .color(ChatColor.RED)
                                 .build()
                 )
