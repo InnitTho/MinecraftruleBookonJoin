@@ -1,0 +1,13 @@
+name: AcceptRules
+version: '${project.version}'
+main: me.saeko.acceptrules.AcceptRules
+api-version: 1.17
+
+commands:
+  AcceptRules:
+    description: accepts the rules
+    usage: /<command>
+
+  rules:
+    description: shows the rules
+    usage: /<command>
