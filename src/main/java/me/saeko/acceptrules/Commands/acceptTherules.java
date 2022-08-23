@@ -31,6 +31,9 @@ public class acceptTherules implements CommandExecutor {
             String commandTwo = "team leave "+p.getName();
             Bukkit.dispatchCommand(console, commandTwo);
 
+            String commandThree = "team join Player "+p.getName();
+            Bukkit.dispatchCommand(console, commandThree);
+
 
         } else {
             p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "You have already accepted the rules");
