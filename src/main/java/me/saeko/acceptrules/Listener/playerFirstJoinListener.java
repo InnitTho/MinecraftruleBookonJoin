@@ -10,6 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 import xyz.upperlevel.spigot.book.BookUtil;
 
 import java.awt.print.Book;
@@ -22,16 +24,21 @@ public class playerFirstJoinListener implements Listener {
     public void onPlayerjoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
 
-        Yaml yaml = new Yaml(p.getUniqueId().toString() + ".yml", mainplugin.getDataFolder() + "/players/");
+        Yaml yaml = new Yaml(p.getUniqueId() + ".yml", mainplugin.getDataFolder() + "/players/");
         yaml.setDefault("rules", false);
 
         if(!yaml.getBoolean("rules")){
             BookUtil.openPlayer(p, createCommandBook(p));
             mainplugin.getRulesList().add(p);
 
-            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+            /*ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String command = "team join noCollision "+p.getName();
-            Bukkit.dispatchCommand(console, command);
+            Bukkit.dispatchCommand(console, command);*/
+            Scoreboard board = mainplugin.getServer().getScoreboardManager().getMainScoreboard();
+            Team noCollision = board.getTeam("noCollision");
+            if(noCollision != null)
+                noCollision.addEntry(p.getName());
+
         }
     }
     private ItemStack createCommandBook(Player p) {

@@ -6,7 +6,7 @@
 
     <groupId>me.saeko</groupId>
     <artifactId>acceptRules</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>AcceptRules</name>
@@ -74,6 +74,7 @@
             <version>3.2.5</version>
             <!-- Should the SimplixStorage be shaded or not?
               <scope>provided</scope>-->
+            <!-- Pdani: YES IT ABSOLUTELY SHOULD BE SHADED. WHAT KIND OF QUESTION EVEN IS THAT?? -->
             <scope>compile</scope>
         </dependency>
         <dependency>
