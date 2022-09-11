@@ -13,8 +13,9 @@ public class playerMove implements Listener {
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e){
-
         Player p = e.getPlayer();
+
+        
 
         if(mainplugin.getRulesList().contains(p)){
             p.kickPlayer("Please accept the rules");

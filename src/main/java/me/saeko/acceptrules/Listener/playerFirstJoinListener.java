@@ -10,6 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 import xyz.upperlevel.spigot.book.BookUtil;
 
 import java.awt.print.Book;
@@ -29,9 +31,10 @@ public class playerFirstJoinListener implements Listener {
             BookUtil.openPlayer(p, createCommandBook(p));
             mainplugin.getRulesList().add(p);
 
-            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-            String command = "team join noCollision "+p.getName();
-            Bukkit.dispatchCommand(console, command);
+            Scoreboard board = mainplugin.getServer().getScoreboardManager().getMainScoreboard();
+            Team noCollision = board.getTeam("noCollision");
+            if(noCollision != null)
+                noCollision.addEntry(p.getName());
         }
     }
     private ItemStack createCommandBook(Player p) {
