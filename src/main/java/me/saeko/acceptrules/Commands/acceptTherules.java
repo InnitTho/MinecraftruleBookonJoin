@@ -7,8 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.Team;
 import org.jetbrains.annotations.NotNull;
 
 public class acceptTherules implements CommandExecutor {
@@ -24,20 +22,11 @@ public class acceptTherules implements CommandExecutor {
             Yaml yaml = new Yaml(p.getUniqueId().toString() + ".yml", mainplugin.getDataFolder() + "/players/");
             yaml.set("rules", true);
             mainplugin.getRulesList().remove(p);
-            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + "Thank you for accepting the rules");
-
-
-            Scoreboard board = mainplugin.getServer().getScoreboardManager().getMainScoreboard();
-            Team team = board.getEntryTeam(p.getName());
-            if(team != null)
-                team.removeEntry(p.getName());
-            Team player = board.getTeam("Player");
-            if(player != null)
-                player.addEntry(p.getName());
+            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + "Thank you for accepting the rules.");
 
 
         } else {
-            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "You have already accepted the rules");
+            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "You have already accepted the rules.");
         }
 
         return true;

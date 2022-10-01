@@ -2,16 +2,12 @@ package me.saeko.acceptrules.Listener;
 
 import de.leonhard.storage.Yaml;
 import me.saeko.acceptrules.AcceptRules;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.Team;
 import xyz.upperlevel.spigot.book.BookUtil;
 
 import java.awt.print.Book;
@@ -31,13 +27,9 @@ public class playerFirstJoinListener implements Listener {
             BookUtil.openPlayer(p, createCommandBook(p));
             mainplugin.getRulesList().add(p);
 
-            Scoreboard board = mainplugin.getServer().getScoreboardManager().getMainScoreboard();
-            Team noCollision = board.getTeam("noCollision");
-            if(noCollision != null)
-                noCollision.addEntry(p.getName());
         }
     }
-    private ItemStack createCommandBook(Player p) {
+    public static ItemStack createCommandBook(Player p) {
         return BookUtil.writtenBook()
                 .author("susko")
                 .title("me when aaaaaaaaaaaaaaa")
@@ -45,135 +37,88 @@ public class playerFirstJoinListener implements Listener {
                         new BookUtil.PageBuilder()
 
                                 .add(
-                                        BookUtil.TextBuilder.of("Welcome to TheServer.wtf")
-                                                .color(ChatColor.DARK_GREEN)
+                                        BookUtil.TextBuilder.of("Welcome to ")
+                                                .color(ChatColor.BLUE)
+                                                .style(ChatColor.BOLD)
+                                                .build()
+                                )
+                                .newLine()
+                                .add(
+                                        BookUtil.TextBuilder.of("TheServer.wtf")
+                                                .color(ChatColor.GOLD)
                                                 .style(ChatColor.BOLD)
                                                 .build()
                                 )
 
                                 .newLine()
-
-                                .add(
-
-                                       BookUtil.TextBuilder.of("-------------------")
-                                               .build()
-
-                                )
-
+                                .newLine()
                                 .add(
 
                                         BookUtil.TextBuilder.of("To get started, check out your Phone menu. In there you can find the RolePlay Menu and HandyMan page and other things you can utilize.")
-                                                .color(ChatColor.GOLD)
+                                                .color(ChatColor.DARK_AQUA)
                                                 .build()
                                 )
+                                .newLine()
                                 .newLine()
                                 .add(
-                                        BookUtil.TextBuilder.of("--------------")
-                                                .color(ChatColor.DARK_RED)
-                                                .build()
-
-                                )
-                                .newLine()
-                                        .add(
-                                BookUtil.TextBuilder.of("Please read this entire book")
+                                BookUtil.TextBuilder.of("You can hover over rules and guidelines for details")
                                         .color(ChatColor.DARK_RED)
                                         .build()
                                 )
-                                .newLine()
-                                .add(
-                                        BookUtil.TextBuilder.of("--------------")
-                                                .color(ChatColor.DARK_RED)
-                                                .build()
-                                )
-
                                 .build(),
-                                 new BookUtil.PageBuilder()
-                                .add(
-                                        BookUtil.TextBuilder.of("Also consider checking out our Discord server to get the latest updates about TheServer and to chat with our community.")
-                                                .color(ChatColor.DARK_BLUE)
-                                                .build()
-                                )
-                                .newLine()
-                                .add(
-                                        BookUtil.TextBuilder.of("[Discord]")
-                                        .onClick(BookUtil.ClickAction.openUrl("http://dc.theserver.wtf/"))
-                                        .onHover(BookUtil.HoverAction.showText("Click here to get the discord link"))
-                                        .color(ChatColor.BLUE)
-                                        .build()
-                                )
-                                .build(),
-
 
         new BookUtil.PageBuilder()
 
                 .add(
-                        BookUtil.TextBuilder.of("Advisory")
+                        BookUtil.TextBuilder.of("!! ADVISORY !!")
                                 .color(ChatColor.RED)
+                                .style(ChatColor.BOLD)
                                 .build()
                 )
 
                 .newLine()
+                .newLine()
 
                 .add(
 
-                        BookUtil.TextBuilder.of("-------------------")
-                                .build()
-
-                )
-
-                .add(
-
-                        BookUtil.TextBuilder.of("Warning; Alcoholism, Drug Usage, Smoking and various other 'mature' roleplay items are allowed for Roleplay & Realism. However, note we are a 13+ Server and allow such. With that said, absolutely NO NSFW and Slurs Will Be Tolerated!"
-)
+                        BookUtil.TextBuilder.of("Contains mature themes, drugs & alcohol, and nooses. It is recommended that you are at least 13 years of age to play.")
                                 .color(ChatColor.DARK_RED)
                                 .build()
                 )
-
-
                                 .build(),
                         new BookUtil.PageBuilder()
 
                                 .add(
-                                        BookUtil.TextBuilder.of("Before we can get started however, you will first have to read and accept our rules, to do that, flip to the next page.")
+                                        BookUtil.TextBuilder.of("RULES")
                                                 .color(ChatColor.BLUE)
-                                                .build()
-
-                                )
-                                .build(),
-                        new BookUtil.PageBuilder()
-                                .add(
-
-
-
-                                        BookUtil.TextBuilder.of("Rule 1. Use Common sense")
-                                                .onHover(BookUtil.HoverAction.showText("We may not have a rule for everything. That doesn't mean you can abuse a lack of a certain rule. Make sure to follow common sense on what is and what is not right."))
-                                                .color(ChatColor.GOLD)
+                                                .style(ChatColor.BOLD)
                                                 .build()
                                 )
+
                                 .newLine()
                                 .newLine()
                                 .add(
-                                        BookUtil.TextBuilder.of("Rule 2. Don't Publish Personal Information")
-                                                .onHover(BookUtil.HoverAction.showText("Do NOT publish people's personal information because it is a breach of privacy. Information such as: home addresses, passwords, license plates, financial information, etc. Revealing personal information about people is strictly prohibited."))
-                                                .color(ChatColor.GOLD)
+
+                                        BookUtil.TextBuilder.of("1. Be respectful.")
+                                                .onHover(BookUtil.HoverAction.showText("Do not bully, harass, discriminate, or use slurs."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
                                 )
                                 .newLine()
                                 .newLine()
                                 .add(
-
-                                        BookUtil.TextBuilder.of("Rule 3. No NSFW Roleplay")
-                                                .onHover(BookUtil.HoverAction.showText("Visualization of nsfw situations are in violation of this rule. Romantic tension, and vague reference are allowed, so long as they do not stem into disallowed areas as stated before."))
-                                                .color(ChatColor.GOLD)
+                                        BookUtil.TextBuilder.of("2. Use common sense and keep server peace.")
+                                                .onHover(BookUtil.HoverAction.showText("Advertising, raiding, spamming, bringing in personal drama, and posting sudden threats of self-harm are all in violation of this rule."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
                                 )
                                 .newLine()
                                 .newLine()
                                 .add(
 
-                                        BookUtil.TextBuilder.of("Rule 4. Do Not Be Overly Dramatic in Any Way")
-                                                .onHover(BookUtil.HoverAction.showText("This includes sudden threats of suicide or self harm for attention which is petty and will not be tolerated."))
-                                                .color(ChatColor.GOLD)
+                                        BookUtil.TextBuilder.of("3. No publishing of personal information.")
+                                                .onHover(BookUtil.HoverAction.showText("(E.g. addresses and passwords.) Less critical information, such as names, is up to the individual to share."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
 
                                 )
@@ -181,9 +126,9 @@ public class playerFirstJoinListener implements Listener {
                                 .newLine()
                                 .add(
 
-                                        BookUtil.TextBuilder.of("Rule 5. No Bullying")
-                                                .onHover(BookUtil.HoverAction.showText("Do not start drama with anyone. If you feel like you have a problem with anyone please talk to staff."))
-                                                .color(ChatColor.GOLD)
+                                        BookUtil.TextBuilder.of("4. Do not discuss politics or religion.")
+                                                .onHover(BookUtil.HoverAction.showText("Such conversations are way too volatile to be had here."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
 
                                 )
@@ -193,20 +138,21 @@ public class playerFirstJoinListener implements Listener {
 
                                 .add(
 
-                                        BookUtil.TextBuilder.of("Rule 6. Do Not Impersonate Staff")
-                                                .onHover(BookUtil.HoverAction.showText("Pretending to work for, or even own the server to deceive players, or even just for fun is strictly prohibited."))
-                                                .color(ChatColor.GOLD)
+                                        BookUtil.TextBuilder.of("5. Do Not mini-mod or impersonate staff.")
+                                                .onHover(BookUtil.HoverAction.showText("Contact an admin or mod if you have an issue with another player needing staff attention."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
 
                                 )
                                 .newLine()
                                 .newLine()
+
                                         .add(
 
 
-                                        BookUtil.TextBuilder.of("Rule 7. Do Not Mini Mod")
-                                                .onHover(BookUtil.HoverAction.showText("Do not moderate as if you are staff. If you think someone is breaking the rules please talk to a staff member instead of trying to handle it yourself."))
-                                                .color(ChatColor.GOLD)
+                                        BookUtil.TextBuilder.of("6. Do not steal or redistribute our resource pack; or use hacks and exploits.")
+                                                .onHover(BookUtil.HoverAction.showText("If you catch anybody breaking this rule, report it to a staff member."))
+                                                .color(ChatColor.DARK_BLUE)
                                                 .build()
 
                                         )
@@ -214,87 +160,149 @@ public class playerFirstJoinListener implements Listener {
                                         .newLine()
 
                                         .add(
+                                                BookUtil.TextBuilder.of("7. Do not ask staff to give you paid ranks or items for free.")
+                                                        .color(ChatColor.DARK_BLUE)
+                                                        .build()
 
+                                        )
 
-                                        BookUtil.TextBuilder.of("Rule 8. Do Not Take Models Or Textures From The Resourcepack")
-                                                .onHover(BookUtil.HoverAction.showText("Stealing textures or using the server texturepack outside of the server for things such as youtube roleplays, your own server, or even things just between friends is prohibited. We worked hard on this pack, and it is protected by copyright law."))
-                                                .color(ChatColor.GOLD)
+                                        .build(),
+                                new BookUtil.PageBuilder()
+
+                                        .add(
+
+                                        BookUtil.TextBuilder.of("8. Remember to always listen to the staff and have fun!")
+                                               .color(ChatColor.DARK_BLUE)
                                                 .build()
 
                                         )
+
+
+                                .build(),
+                                new BookUtil.PageBuilder()
+                                        .add(
+
+                                        BookUtil.TextBuilder.of("RP GUIDELINES")
+                                                .style(ChatColor.BOLD)
+                                                .color(ChatColor.DARK_AQUA)
+                                                .build()
+                                )
+                                .newLine()
+                                .newLine()
+                                        .add(
+
+                                                BookUtil.TextBuilder.of("Terms to Know:")
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .style(ChatColor.BOLD)
+                                                        .build()
+                                        )
                                         .newLine()
                                         .newLine()
+                                        .add(
 
+                                                BookUtil.TextBuilder.of("RP - Roleplay.")
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                        )
+                                        .newLine()
+                                        .add(
 
+                                                BookUtil.TextBuilder.of("IC - In Character.")
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                        )
+                                        .newLine()
+                                        .add(
 
+                                                BookUtil.TextBuilder.of("OOC - Out of Character.")
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                        )
+                                        .newLine()
+                                        .add(
+
+                                                BookUtil.TextBuilder.of("Canon - Official or confirmed; information accepted as true.")
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                        )
+                                        .build(),
+                                        new BookUtil.PageBuilder()
                                                 .add(
-
-                                        BookUtil.TextBuilder.of("Rule 9. Do Not Ask To Be Given Paid Privileges")
-                                                 .onHover(BookUtil.HoverAction.showText("This includes item variants, roles, etc for free. Staff are not allowed to grant you these for free and you will be given a warning."))
-                                                 .color(ChatColor.GOLD)
-                                                 .build()
-
+                                                BookUtil.TextBuilder.of("1. Keep it 'Safe for Work'")
+                                                        .onHover(BookUtil.HoverAction.showText("Roleplay that is sexually explicit is not permitted. However as a 13+ server we do allow mature topics. Romance and flirting are OK, but they shouldn't progress to vulgar conversation, touching, or sexual activity."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
                                                 )
                                         .newLine()
                                         .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("2. Do Not Powerplay")
+                                                        .onHover(BookUtil.HoverAction.showText("Powerplaying is forcing actions upon other people’s characters without asking first."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
 
+                                                )
+                                                .newLine()
+                                                .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("3. Do Not Auto")
+                                                        .onHover(BookUtil.HoverAction.showText("'Auto' is similar to powerplaying. However, this is when you perform an action and do not give others a chance to reply before continuing with the said action."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("4. Do Not Godmod")
+                                                        .onHover(BookUtil.HoverAction.showText("Godmodding is when you give your character God-like powers."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("5. No Mary Sues")
+                                                        .onHover(BookUtil.HoverAction.showText("A 'Mary Sue' is a character too perfect to abide by logic. A Mary Sue may often have God-like powers, no flaws, and be unrealistically 'perfect' overall."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("6. No Metagaming")
+                                                        .onHover(BookUtil.HoverAction.showText("Metagaming is when a character knows information learned OOC while IC, without learning about the said info IC first."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
+                                                .add(
+                                                BookUtil.TextBuilder.of("7. Consent")
+                                                        .onHover(BookUtil.HoverAction.showText("Consent is essential. Always make sure you have permission to join others’ roleplays. Powerplaying, godmodding and metagaming allowed, as long as you have consent from everyone you are roleplaying with."))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
 
+                                        .build(),
+                                        new BookUtil.PageBuilder()
+                                                .add(
 
-                                .build(),
-                                new BookUtil.PageBuilder()
-
+                                                BookUtil.TextBuilder.of("By clicking 'ACCEPT', you're agreeing to our rules and acknowledging the advisory.")
+                                                                .color(ChatColor.DARK_GRAY)
+                                                                .build()
+                                                )
+                                                .newLine()
+                                                .newLine()
                                         .add(
 
-                                        BookUtil.TextBuilder.of("Rule 10. No Hacking")
-                                                .onHover(BookUtil.HoverAction.showText("Hacking and Exploiting is strictly prohibited. Please report any hackers or exploiters to staff."))
-                                                .color(ChatColor.GOLD)
-                                                .build()
-
-                                        )
-                                .newLine()
-                                .newLine()
-
-
-
-                                        .add(
-
-                                        BookUtil.TextBuilder.of("Rule 11. Do Not Spam The Chat")
-                                                .color(ChatColor.GOLD)
-                                                .build()
-
-                                        )
-
-
-                                .newLine()
-                                .newLine()
-                                        .add(
-
-                                        BookUtil.TextBuilder.of("Rule 12. No slurs")
-                                                .color(ChatColor.GOLD)
-                                                .build()
-
-                                )
-                                .newLine()
-                                .newLine()
-
-                                        .add(
-
-                                        BookUtil.TextBuilder.of("Rule 13. No Political Conversations")
-                                                .onHover(BookUtil.HoverAction.showText("Things like politics are way too volatile and unstable to deal with."))
-                                                .color(ChatColor.GOLD)
-                                                .build()
-
-                                )
-                                .newLine()
-                                .newLine()
-
-                                        .add(
-
-                                                BookUtil.TextBuilder.of("[Accept Rules]")
-                                                .onHover(BookUtil.HoverAction.showText("By clicking this you agree to follow the rules"))
-                                                .onClick(BookUtil.ClickAction.runCommand("/AcceptRules"))
-                                                .color(ChatColor.GREEN)
-                                                .build()
+                                                BookUtil.TextBuilder.of("[ACCEPT]")
+                                                        .onHover(BookUtil.HoverAction.showText("Click to Accept"))
+                                                        .onClick(BookUtil.ClickAction.runCommand("/AcceptRules"))
+                                                        .color(ChatColor.DARK_GREEN)
+                                                        .style(ChatColor.BOLD)
+                                                        .build()
 
                                 )
                                 .build()
