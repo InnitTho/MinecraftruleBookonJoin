@@ -81,7 +81,7 @@ public class playerFirstJoinListener implements Listener {
 
                 .add(
 
-                        BookUtil.TextBuilder.of("Contains mature themes, drugs & alcohol, and nooses. It is recommended that you are at least 13 years of age to play.")
+                        BookUtil.TextBuilder.of("Contains mature themes, drugs, & alcohol. It is recommended that you are at least 13 years of age to play.")
                                 .color(ChatColor.DARK_RED)
                                 .build()
                 )
