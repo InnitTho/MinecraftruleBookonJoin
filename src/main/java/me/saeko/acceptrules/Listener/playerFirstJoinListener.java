@@ -54,14 +54,14 @@ public class playerFirstJoinListener implements Listener {
                                 .newLine()
                                 .add(
 
-                                        BookUtil.TextBuilder.of("To get started, check out your Phone menu. In there you can find the RolePlay Menu and HandyMan page and other things you can utilize.")
+                                        BookUtil.TextBuilder.of("To continue, you'll have to press the clickable ACCEPT button at the end of this book.")
                                                 .color(ChatColor.DARK_AQUA)
                                                 .build()
                                 )
                                 .newLine()
                                 .newLine()
                                 .add(
-                                BookUtil.TextBuilder.of("You can hover over rules and guidelines for details")
+                                BookUtil.TextBuilder.of("Once you have accepted the rules, you can use the phone menu and play on the server.")
                                         .color(ChatColor.DARK_RED)
                                         .build()
                                 )

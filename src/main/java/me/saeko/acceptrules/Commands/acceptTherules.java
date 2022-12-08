@@ -22,7 +22,7 @@ public class acceptTherules implements CommandExecutor {
             Yaml yaml = new Yaml(p.getUniqueId().toString() + ".yml", mainplugin.getDataFolder() + "/players/");
             yaml.set("rules", true);
             mainplugin.getRulesList().remove(p);
-            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + "Thank you for accepting the rules.");
+            p.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RESET + "\uE004" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + "Thank you for accepting the rules. If the texture pack doesn't load, please rejoin.");
 
 
         } else {
