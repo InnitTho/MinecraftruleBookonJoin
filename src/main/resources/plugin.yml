@@ -1,7 +1,7 @@
 name: AcceptRules
 version: '${project.version}'
 main: me.saeko.acceptrules.AcceptRules
-api-version: 1.17
+api-version: 1.19.3
 
 commands:
   AcceptRules:
